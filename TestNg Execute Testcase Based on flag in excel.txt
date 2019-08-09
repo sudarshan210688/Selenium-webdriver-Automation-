@@ -1,0 +1,12 @@
+import org.testng.SkipException;
+/* Select Testcase from Excel */ 
+
+public void ExecuteTestCaseFromExcel(String testCaseFlag)
+{
+
+  if(testCaseFlag.equalsIgnoreCase("NO"))
+       {
+  reportRequest("Testcase has been skipped", "SKIP"); /* Skipping testcases in Extent Report
+  throw new SkipException("Skipping this Testcase Since is not Selected for testing ");
+       }
+
