@@ -1,0 +1,101 @@
+package RND_AdvanceSelenium;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+public class LearnCssSelectors {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
+		ChromeOptions Op=new ChromeOptions();
+	 
+	    Op.addArguments("start-maximized");
+	    ChromeDriver driver = new ChromeDriver(Op);
+	    driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	    driver.get("https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp");
+	    
+	    /*CSS selector using ID ---> use # in front of ID*/
+	    
+	    driver.findElementByCssSelector("#firstName").sendKeys("Steve");
+	    
+	    /* CSS selector using class name --> use . infront of class name */
+	    	    
+	    String text = driver.findElementByCssSelector(".kTNrif").getText();
+	    System.out.println(text);
+	  
+	    
+	    /* Unique Using Class name with Spaces ----> use . between the spaces*/
+	    
+	    driver.findElementByCssSelector(".U26fgb.mUbCce.fKz7Od").click();
+	   
+	
+	    
+	    /* Attribute based CSS Selector */
+	     driver.findElementByCssSelector("input[aria-label='Last name']").sendKeys("Jobs");
+	     
+	     /*using Tagname and ID */
+	     driver.findElementByCssSelector("input#lastName").sendKeys("+stayHungry"); 
+	     
+	     /*using Tagname and Class */
+	     String text2 = driver.findElementByCssSelector("div.AIu8h").getText();
+	     System.out.println(text2);
+	     
+	     /*Using Tagname, Class and any Attribute */
+	    driver.findElementByCssSelector("input.whsOnd.zHQkBf[name='Passwd']").sendKeys("stayHungry");
+	    
+	    /*Using Tagname, ID and any Attribute */
+	    driver.findElementByCssSelector("div#accountDetailsNext[role='button']").click();
+	    
+	    /* using starts-with wild card for attribute value */
+	    driver.findElementByCssSelector("input[name^='User']").sendKeys("steveJobsAppleINC");
+	    
+	    /* using ends-with wild card for attribute value */
+	    driver.findElementByCssSelector("input[name$='name']").clear();
+	    
+	    /* using contains  wild card for attribute value  *   */
+	    driver.findElementByCssSelector("input[name*='first']").sendKeys("+Mac");
+	    
+	    /* using only the attribute for  exact match */
+	    driver.findElementByCssSelector("[name='Username']").sendKeys("12345678");
+	    
+	    /*  using only attribute with starts-with wild card  ^  */
+	     driver.findElementByCssSelector("[name^='User']").sendKeys("StayFoolish");
+	    
+	    /* using only attribute with ends-with wild card  $ */
+	    driver.findElementByCssSelector("[name$='name']").sendKeys("!@!@@#@#");
+	    
+	    /*similar to Absoulte XPath  in CSS selector space should be used for following  --->.u7land [role='listbox'],div  [role='listbox'],div div  [role='listbox']*/
+	    
+	    driver.findElementByCssSelector(".RwBngc div#lang-chooser").click();
+	    
+	    /*Locating the child Elements --for child elements use > --->.GtglAe >div*    -- >Relative &Absoulte Xpath(combo) /
+	    
+	    driver.findElementByCssSelector("div.GtglAe >div #accountDetailsNext").click();
+	    
+	    /* Locating multiple child element for a parent */
+	    driver.findElementByCssSelector(".RwBngc div#lang-chooser").click();
+	    driver.findElementByCssSelector("div.OA0qNb.ncFHed>div:nth-of-type(7)").click();
+	    
+	    //div.OA0qNb.ncFHed div:nth-of-type(7)
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	    
+	   
+	    
+
+	    
+
+
+	}
+
+}
